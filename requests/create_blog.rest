@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs/
+Content-Type: application/json
+
+{
+    "title": "Facebook Blog",
+    "autor": "Mark",
+    "url": "https://about.fb.com/news/",
+    "likes": 200
+}
