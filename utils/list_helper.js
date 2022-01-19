@@ -23,6 +23,29 @@ const favoriteBlog = (blogs) => {
   return favorite
 }
 
+const mostBlogs = (blogs) => {
+  const authorBlog = new Map()
+  blogs.forEach(element => {
+    const prevVal = authorBlog.get(element.author) ?? 0
+    const newVal = prevVal + 1
+    authorBlog.set(element.author, newVal)
+  })
+
+  let result = {
+    author: '',
+    blogs: 0
+  }
+
+  authorBlog.forEach((value, key) => {
+    if (value > result.blogs) {
+      result.author = key
+      result.blogs = value
+    }
+  })
+
+  return result
+}
+
 module.exports = {
-  dummy, totalLikes, favoriteBlog
+  dummy, totalLikes, favoriteBlog, mostBlogs
 }
